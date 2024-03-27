@@ -12,21 +12,30 @@ library(purrr)
 rm(list=ls());cat('\f')
 gc()
 
-# wd----
-wd <- {list(home   = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade", 
-            data   = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade/data", 
-            output = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade/output",
-            R      = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade/R", 
-            shiny  = NA, 
-            cw     = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade/crosswalks")
-}
+## wd----
+# wd <- {list(home   = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade", 
+#             data   = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade/data", 
+#             output = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade/output",
+#             R      = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade/R", 
+#             shiny  = NA, 
+#             cw     = "C:/Users/bende/Documents/R/play/shiny_misc/shiny_intraamerican_slave_trade/crosswalks")
+# }
 
-setwd(wd$R)
+#setwd(wd$R)
 
 # load data----
-setwd(wd$data)
+#setwd(wd$data)
 
-load(list.files(pattern = "\\.RData$"))
+setwd(dir = "data/")
+getwd()
+
+load(list.files( pattern = "\\.RData$"))
+
+setwd('..')
+getwd()
+
+
+
 
 
 # journey general flow----
