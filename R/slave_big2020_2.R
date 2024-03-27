@@ -25,6 +25,7 @@ library("readr")
 library("spData")
 library("spDataLarge")  #install.packages('spDataLarge',repos='https://nowosad.github.io/drat/', type='source')
 
+
 #library(sp)
 #library(sf)
 #library(rgeos)
