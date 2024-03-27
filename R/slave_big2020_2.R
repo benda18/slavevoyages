@@ -353,7 +353,7 @@ middle_passage_stats <- ta %>%
 
 which(middle_passage_stats$slaves_disemb <= 3)
 
-table(middle_passage_stats$outcome_voyage)
+table(middle_passage_stats$outcome_voyage) 
 
 ggplot(data = middle_passage_stats, 
        aes(x = year_arrive_americas, y = slaves_emp)) + 
@@ -404,7 +404,9 @@ ggplot(data = middle_passage_stats,
   scale_y_continuous(labels = scales::comma, 
                      breaks = seq(0,1000,by=50))+
   theme(plot.background = element_rect(fill = "yellow"))+
-  labs(title ="Middle Passage Duration (in Days) by Year")
+  labs(title ="Middle Passage Duration (in Days) by Year")+
+  geom_vline(aes(xintercept = 1861), 
+             color = "red", linetype = 2)
 
 ggplot(data = middle_passage_stats, 
        aes(y = slave_mortality_rate, x = mp_dur_imp_days)) + 
