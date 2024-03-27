@@ -415,16 +415,18 @@ ggplot(data = middle_passage_stats,
   geom_smooth(se = F, method = "lm")+
   labs(title = "mortality rate vs. duration of middle passage")
 
-middle_passage_stats$slave_mortality_rate %>% hist
+#middle_passage_stats$slave_mortality_rate %>% hist
 
 ggplot(data = middle_passage_stats, 
        aes(y = slave_mortality_rate, x = mp_dur_imp_days)) + 
-  geom_point()+
+  geom_point(color = "grey")+
   geom_smooth(se=F, 
               aes(color = outcome_owner), 
               method = "auto")+
-  scale_x_log10()+
-  theme(plot.background = element_rect(fill = "yellow"))
+ #scale_x_log10()+
+  scale_y_continuous(labels = scales::percent)+
+  theme(plot.background = element_rect(fill = "yellow"))+
+  labs(title = "Mortality Rate vs. Length of Middle Passage in Days")
 
 
 middle_passage_stats %>%
@@ -448,7 +450,7 @@ middle_passage_stats %>%
   ggplot(data = ., aes(x = year_left_africa, y = med_mort)) + 
   geom_point()+
   geom_smooth(se = F)+
-  scale_y_continuous(limits = c(0, NA))+
+  scale_y_continuous(limits = c(0, 1), labels = scales::percent)+
   scale_x_continuous(limits = c(1500, 1865))+
   labs(title = "Median Mortality Rate by Year")+
   theme(plot.background = element_rect(fill = "yellow"))
@@ -547,12 +549,15 @@ slice_sample(group_by(mps[!is.na(mps$slaves_emp) &
   ggplot(data = ., position = "stack", 
          aes(alpha = n_delivered_slaves)) + 
   geom_col(aes(x = decade, y = avg_slaves_deboarded))+
-  geom_col(aes(x = decade, y = avg_slaves_boarded - avg_slaves_deboarded), fill = "red")+
+  geom_col(aes(x = decade, y = avg_slaves_boarded - avg_slaves_deboarded),
+           fill = "red")+
   theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5), 
-        legend.position = "bottom")
+        legend.position = "bottom")+
+  labs(title = "Average Slave Deaths by Year as Proporation of all Boardings")
 
 grep("landing", col_defs$def, ignore.case = T, value = T) %>%
   grep("region", ., ignore.case = T, value = T) %>%
   grep("imputed", ., ignore.case = T, value = T)
 
 col_defs[col_defs$def == "Imputed broad region of landing",]$colname
+
