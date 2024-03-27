@@ -32,11 +32,11 @@ library("spDataLarge")  #install.packages('spDataLarge',repos='https://nowosad.g
 #library(mdsr)
 library("gtools") #for permutations()
 library("maps") #for data(world.cities)
-library(shiny)
+#library(shiny)
 
 rm(list = ls())
 cat("\f")
-setwd("~/R/play")
+#setwd("~/R/play")
 #vars----
 
 slave.dates <- data.frame(type = c("USA", "UK", 
@@ -47,7 +47,8 @@ slave.dates <- data.frame(type = c("USA", "UK",
                           date = ymd(c(18060101, 18070101, 
                                        18110101, 18140101, 
                                        18150101, 18170101, 
-                                       18190101, 18220101)))
+                                       18190101, 18220101))) |>
+  mutate(date_meaning = "unknown")
 
 
 broad.reg <- data.frame(name = c("Africa", "Caribbean", "Brazil",  "Europe", "Spanish Mainland America", "Mainland North America"), 
@@ -79,7 +80,7 @@ ggplot() +
 #transatlantic-data----
 
 
-ta <- read_sav("tastdb-exp-2020.sav")
+ta <- read_sav("data/tastdb-exp-2020.sav")
 head(ta)
 
 attributes(ta$ADULT1)
