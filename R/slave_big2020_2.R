@@ -2,6 +2,7 @@
 #https://stackoverflow.com/questions/27347548/r-assign-variable-labels-of-data-frame-columns
 #https://stackoverflow.com/questions/8196109/how-to-convert-a-string-in-a-function-into-an-object
 
+library(renv)
 library(data.table)
 #library(mdsr)
 library("haven")
@@ -30,6 +31,7 @@ library("spDataLarge")  #install.packages('spDataLarge',repos='https://nowosad.g
 #library(mdsr)
 library("gtools") #for permutations()
 library("maps") #for data(world.cities)
+library(shiny)
 
 rm(list = ls())
 cat("\f")
