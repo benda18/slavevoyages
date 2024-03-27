@@ -8,7 +8,7 @@ library(janitor)
 library(dplyr)
 library(ggplot2)
 library(data.table)
-library(usethis)
+library(usethis) # https://happygitwithr.com/existing-github-last
 
 renv::snapshot()
 renv::status()
